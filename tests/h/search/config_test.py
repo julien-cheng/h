@@ -33,7 +33,7 @@ def test_strip_scheme_char_filter():
     assert re.sub(p, r, "uri:x-pdf:1234") == "x-pdf:1234"
     assert re.sub(p, r, "example.com") == "example.com"
     # This is ambiguous, and possibly cannot be expected to work.
-    # assert(re.sub(p, r, 'localhost:80') == 'localhost:80')
+    # assert(re.sub(p, r, 'localhost:5000') == 'localhost:5000')
 
 
 def test_path_url_filter():

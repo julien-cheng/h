@@ -46,7 +46,7 @@ And here's an example of the output you might see from supervisord:
     2017-01-24 17:25:05,217 INFO success: web entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
     2017-01-24 17:25:05,217 INFO success: worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
     web (stderr)         | 2017-01-24 17:25:04,203 [15440] [gunicorn.error:INFO] Starting gunicorn 19.6.0
-    web (stderr)         | 2017-01-24 17:25:04,205 [15440] [gunicorn.error:INFO] Listening at: http://127.0.0.1:80 (15440)
+    web (stderr)         | 2017-01-24 17:25:04,205 [15440] [gunicorn.error:INFO] Listening at: http://127.0.0.1:5000 (15440)
     web (stderr)         | 2017-01-24 17:25:04,206 [15440] [gunicorn.error:INFO] Using worker: sync
     web (stderr)         | 2017-01-24 17:25:04,211 [15449] [gunicorn.error:INFO] Booting worker with pid: 15449
     worker               |

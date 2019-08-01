@@ -73,7 +73,7 @@ class LinksService(object):
 
 def links_factory(context, request):
     """Return a LinksService instance for the passed context and request."""
-    base_url = request.registry.settings.get("h.app_url", "http://localhost:80")
+    base_url = request.registry.settings.get("h.app_url", "http://localhost:5000")
     return LinksService(base_url=base_url, registry=request.registry)
 
 

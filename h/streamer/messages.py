@@ -152,7 +152,7 @@ def _generate_annotation_event(
 
     notification = {"type": "annotation-notification", "options": {"action": action}}
 
-    base_url = socket.registry.settings.get("h.app_url", "http://localhost:80")
+    base_url = socket.registry.settings.get("h.app_url", "http://localhost:5000")
     links_service = LinksService(base_url, socket.registry)
     resource = AnnotationContext(annotation, group_service, links_service)
     serialized = presenters.AnnotationJSONPresenter(

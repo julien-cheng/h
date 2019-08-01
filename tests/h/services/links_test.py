@@ -70,7 +70,7 @@ class TestLinksFactory(object):
     def test_base_url_is_development_base_if_not_set(self, pyramid_request):
         svc = links_factory(None, pyramid_request)
 
-        assert svc.base_url == "http://localhost:80"
+        assert svc.base_url == "http://localhost:5000"
 
     def test_base_url_is_app_url_setting_if_set(self, pyramid_request):
         pyramid_request.registry.settings["h.app_url"] = "https://hypothes.is"

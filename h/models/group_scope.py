@@ -40,7 +40,7 @@ class GroupScope(Base):
     #:
     #: http://example.com
     #: https://web.hypothes.is
-    #: http://localhost:80
+    #: http://localhost:5000
     _origin = sa.Column("origin", sa.UnicodeText, nullable=False)
 
     @hybrid_property
