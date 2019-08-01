@@ -49,7 +49,7 @@ def devserver(https, web, ws, worker, assets, beat):
 
     By default, the webserver will be accessible at:
 
-        http://localhost:5000
+        http://localhost:8080
 
     You can also pass the `--https` flag, which will look for a TLS certificate
     and key in PEM format in the current directory, in files called:
@@ -59,7 +59,7 @@ def devserver(https, web, ws, worker, assets, beat):
 
     If you use this flag, the webserver will be accessible at:
 
-        https://localhost:5000
+        https://localhost:8080
 
     If you wish this to be the default behaviour, you can set the
     USE_HTTPS environment variable.
@@ -74,11 +74,11 @@ def devserver(https, web, ws, worker, assets, beat):
     os.environ["PYTHONUNBUFFERED"] = "true"
     if https:
         gunicorn_args = "--certfile=.tlscert.pem --keyfile=.tlskey.pem"
-        os.environ["APP_URL"] = "https://localhost:5000"
+        os.environ["APP_URL"] = "https://localhost:8080"
         os.environ["WEBSOCKET_URL"] = "wss://localhost:5001/ws"
     else:
         gunicorn_args = ""
-        os.environ["APP_URL"] = "http://localhost:5000"
+        os.environ["APP_URL"] = "http://localhost:8080"
         os.environ["WEBSOCKET_URL"] = "ws://localhost:5001/ws"
 
     m = Manager()

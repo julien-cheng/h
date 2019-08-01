@@ -22,7 +22,7 @@ class TestDocumentURIsFromLinks(object):
         always generated anyway).
 
         """
-        claimant = "http://localhost:5000/docs/help"
+        claimant = "http://localhost:8080/docs/help"
         link_dicts = [{"href": claimant}]
 
         document_uris = document_claims.document_uris_from_links(link_dicts, claimant)
@@ -46,7 +46,7 @@ class TestDocumentURIsFromLinks(object):
         link_dicts = [{"href": "doi:10.3389/fenvs.2014.00003"}]
 
         document_uris = document_claims.document_uris_from_links(
-            link_dicts, claimant="http://localhost:5000/docs/help"
+            link_dicts, claimant="http://localhost:8080/docs/help"
         )
 
         assert document_uris == []
@@ -56,7 +56,7 @@ class TestDocumentURIsFromLinks(object):
         link_dicts = [{"href": pdf_url, "type": "application/pdf"}]
 
         document_uris = document_claims.document_uris_from_links(
-            link_dicts, claimant="http://localhost:5000/docs/help"
+            link_dicts, claimant="http://localhost:8080/docs/help"
         )
 
         assert document_uris == []
@@ -66,7 +66,7 @@ class TestDocumentURIsFromLinks(object):
         link_dicts = [{"href": alternate_url, "rel": "alternate"}]
 
         document_uris = document_claims.document_uris_from_links(
-            link_dicts, claimant="http://localhost:5000/docs/help"
+            link_dicts, claimant="http://localhost:8080/docs/help"
         )
 
         alternate_document_uri = one(
@@ -74,7 +74,7 @@ class TestDocumentURIsFromLinks(object):
         )
         assert alternate_document_uri == {
             "type": "rel-alternate",
-            "claimant": "http://localhost:5000/docs/help",
+            "claimant": "http://localhost:8080/docs/help",
             "content_type": "",
             "uri": alternate_url,
         }
@@ -467,7 +467,7 @@ class TestDocumentURIsFromDC(object):
 
 class TestDocumentURISelfClaim(object):
     def test_document_uri_self_claim(self):
-        claimant = "http://localhost:5000/docs/help"
+        claimant = "http://localhost:8080/docs/help"
 
         document_uri = document_claims.document_uri_self_claim(claimant)
 
@@ -496,7 +496,7 @@ class TestDocumentURIsFromData(object):
                 "link_dict_3",
             ]
         }
-        claimant = "http://localhost:5000/docs/help"
+        claimant = "http://localhost:8080/docs/help"
         document_uris_from_links.return_value = [
             {"uri": "uri_1"},
             {"uri": "uri_2"},
@@ -517,7 +517,7 @@ class TestDocumentURIsFromData(object):
         self, document_uris_from_links
     ):
         document_data = {}  # No 'link' key.
-        claimant = "http://localhost:5000/docs/help"
+        claimant = "http://localhost:8080/docs/help"
 
         document_claims.document_uris_from_data(
             document_data=document_data, claimant=claimant
@@ -529,7 +529,7 @@ class TestDocumentURIsFromData(object):
         self, document_uris_from_highwire_pdf
     ):
         document_data = {"highwire": {"pdf": ["pdf_1", "pdf_2", "pdf_3"]}}
-        claimant = "http://localhost:5000/docs/help"
+        claimant = "http://localhost:8080/docs/help"
         document_uris_from_highwire_pdf.return_value = [
             {"uri": "uri_1"},
             {"uri": "uri_2"},
@@ -550,7 +550,7 @@ class TestDocumentURIsFromData(object):
         self, document_uris_from_highwire_pdf
     ):
         document_data = {}  # No 'highwire' key.
-        claimant = "http://localhost:5000/docs/help"
+        claimant = "http://localhost:8080/docs/help"
 
         document_claims.document_uris_from_data(
             document_data=document_data, claimant=claimant
@@ -562,7 +562,7 @@ class TestDocumentURIsFromData(object):
         self, document_uris_from_highwire_doi
     ):
         document_data = {"highwire": {"doi": ["doi_1", "doi_2", "doi_3"]}}
-        claimant = "http://localhost:5000/docs/help"
+        claimant = "http://localhost:8080/docs/help"
         document_uris_from_highwire_doi.return_value = [
             {"uri": "uri_1"},
             {"uri": "uri_2"},
@@ -583,7 +583,7 @@ class TestDocumentURIsFromData(object):
         self, document_uris_from_highwire_doi
     ):
         document_data = {}  # No 'highwire' key.
-        claimant = "http://localhost:5000/docs/help"
+        claimant = "http://localhost:8080/docs/help"
 
         document_claims.document_uris_from_data(
             document_data=document_data, claimant=claimant
@@ -593,7 +593,7 @@ class TestDocumentURIsFromData(object):
 
     def test_it_gets_documents_uris_from_dc(self, document_uris_from_dc):
         document_data = {"dc": {"identifier": ["doi_1", "doi_2", "doi_3"]}}
-        claimant = "http://localhost:5000/docs/help"
+        claimant = "http://localhost:8080/docs/help"
         document_uris_from_dc.return_value = [
             {"uri": "uri_1"},
             {"uri": "uri_2"},
@@ -610,7 +610,7 @@ class TestDocumentURIsFromData(object):
 
     def test_calling_document_uris_from_dc_when_no_dc(self, document_uris_from_dc):
         document_data = {}  # No 'dc' key.
-        claimant = "http://localhost:5000/docs/help"
+        claimant = "http://localhost:8080/docs/help"
 
         document_claims.document_uris_from_data(
             document_data=document_data, claimant=claimant

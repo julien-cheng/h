@@ -9,7 +9,7 @@ COPY package.json ./
 RUN npm ci --production
 
 # Build h js/css.
-COPY gulpfile.js ./ 
+COPY gulpfile.js ./
 COPY scripts/gulp ./scripts/gulp
 COPY h/static ./h/static
 RUN npm run build
@@ -67,7 +67,7 @@ COPY . .
 RUN [ -d .git ] && chown -R hypothesis:hypothesis .git || :
 
 # Expose the default port.
-EXPOSE 5000
+EXPOSE 8080
 
 # Set the application environment
 ENV PATH /var/lib/hypothesis/bin:$PATH

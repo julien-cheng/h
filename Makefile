@@ -119,7 +119,7 @@ run-docker:
 	# If you don't intend to use the client with the container, you can skip this.
 	docker run \
 		--net h_default \
-		-e "APP_URL=http://localhost:5000" \
+		-e "APP_URL=http://localhost:8080" \
 		-e "AUTHORITY=localhost" \
 		-e "BROKER_URL=amqp://guest:guest@rabbit:5672//" \
 		-e "CLIENT_OAUTH_ID" \
@@ -129,7 +129,7 @@ run-docker:
 		-e "NEW_RELIC_APP_NAME=h (dev)" \
 		-e "NEW_RELIC_LICENSE_KEY" \
 		-e "SECRET_KEY=notasecret" \
-		-p 5000:5000 \
+		-p 8080:8080 \
 		hypothesis/hypothesis:$(DOCKER_TAG)
 
 .PHONY: clean

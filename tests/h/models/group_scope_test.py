@@ -23,7 +23,7 @@ class TestGroupScope(object):
         db_session.flush()
 
     def test_port_is_allowed_in_scope(self, db_session, factories):
-        factories.GroupScope(scope="http://localhost:5000")
+        factories.GroupScope(scope="http://localhost:8080")
         db_session.flush()
 
     def test_it_raises_if_scope_has_no_origin(self, db_session, factories):
