@@ -98,7 +98,7 @@ Start the development server
 The first time you run ``make dev`` it might take a while to start because
 it'll need to install the application dependencies and build the client assets.
 
-This will start the server on port 5000 (http://localhost:5000), reload the
+This will start the server on port 80 (http://localhost:80), reload the
 application whenever changes are made to the source code, and restart it should
 it crash for some reason.
 

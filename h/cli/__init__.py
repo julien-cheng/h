@@ -39,7 +39,7 @@ def bootstrap(app_url, dev=False):
     # set in production mode.
     if not app_url:
         if dev:
-            app_url = "http://localhost:5000"
+            app_url = "http://localhost:80"
         else:
             raise click.ClickException("the app URL must be set in production mode!")
 
